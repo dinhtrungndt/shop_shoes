@@ -24,6 +24,10 @@
         "source": "com.example.shop_shoes.app-main-5:/mipmap-mdpi/ic_launcher.png"
     },
     {
+        "merged": "com.example.shop_shoes.app-merged_res-11:/drawable_splash_screens.png.flat",
+        "source": "com.example.shop_shoes.app-main-5:/drawable/splash_screens.png"
+    },
+    {
         "merged": "com.example.shop_shoes.app-merged_res-11:/drawable-v21_launch_background.xml.flat",
         "source": "com.example.shop_shoes.app-main-5:/drawable-v21/launch_background.xml"
     }
