@@ -21,7 +21,7 @@
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 19-->[androidx.core:core:1.6.0] C:\Users\trung\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
-21        android:icon="@mipmap/ic_launcher"
+21        android:icon="@drawable/splash_screens"
 22        android:label="shop_shoes" >
 23        <activity
 24            android:name="com.example.shop_shoes.MainActivity"
