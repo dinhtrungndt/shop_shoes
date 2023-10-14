@@ -119,12 +119,12 @@ class _BroadingScreensState extends State<BroadingScreens> {
                   padding: const EdgeInsets.only(top: 50),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.of(context).push(
                         MaterialPageRoute(builder: (_) => const HomeScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 28, 148, 157),
+                      backgroundColor: const Color.fromARGB(255, 93, 202, 209),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),

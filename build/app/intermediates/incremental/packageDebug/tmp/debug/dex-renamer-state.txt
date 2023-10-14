@@ -1,4 +1,4 @@
-#Fri Oct 13 22:50:36 ICT 2023
+#Sat Oct 14 11:01:31 ICT 2023
 base.0=D\:\\Self learning\\Flutter\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
