@@ -64,6 +64,9 @@ flutter:
     - assets/Ellipse-237.png
     - assets/Ellipse-238.png
     - assets/back_login.png
+    - assets/Facebook_48px.png
+    - assets/Twitter_48px.png
+    - assets/google_48px.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
