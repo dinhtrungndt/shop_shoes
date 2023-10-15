@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:shop_shoes/screens/home/index.dart';
+import 'package:shop_shoes/screens/login_Email_SDT/Email/signUp/index.dart';
 
 class LoginEmail extends StatefulWidget {
   const LoginEmail({super.key});
@@ -33,7 +33,7 @@ class _LoginEmailState extends State<LoginEmail> {
               ),
             ),
             TextField_Email_Password(
-                CupertinoIcons.mail_solid, 'Enter your username', false),
+                Icons.account_circle_outlined, 'Enter your username', false),
             const SizedBox(
               height: 10,
             ),
@@ -47,7 +47,8 @@ class _LoginEmailState extends State<LoginEmail> {
                 ),
               ],
             ),
-            TextField_Email_Password(Icons.lock, 'Enter your password', true),
+            TextField_Email_Password(
+                Icons.lock_outline, 'Enter your password', true),
             const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -115,7 +116,12 @@ class _LoginEmailState extends State<LoginEmail> {
                       style: TextStyle(color: Color.fromARGB(255, 47, 47, 47)),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (_) => const SignUpEmail()),
+                        );
+                      },
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(

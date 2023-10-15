@@ -120,7 +120,8 @@ class _BroadingScreensState extends State<BroadingScreens> {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => const HomeScreen()),
+                        MaterialPageRoute(
+                            builder: (_) => const LoginEmailPhone()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

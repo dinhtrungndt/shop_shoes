@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'Email/index.dart';
 import 'package:shop_shoes/screens/login_Email_SDT/Phone/index.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class LoginEmailPhone extends StatefulWidget {
+  const LoginEmailPhone({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<LoginEmailPhone> createState() => _LoginEmailPhoneState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+class _LoginEmailPhoneState extends State<LoginEmailPhone>
+    with TickerProviderStateMixin {
   late TabController _tabController;
 
   @override
