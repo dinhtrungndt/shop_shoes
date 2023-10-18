@@ -1,4 +1,0 @@
-#Wed Oct 18 14:41:48 ICT 2023
-base.0=E\:\\code\\Github\\Flutter\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

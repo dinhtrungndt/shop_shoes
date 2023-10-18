@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_shoes/screens/splash_screen.dart';
+import 'package:shop_shoes/splashscreens/splash_screen.dart';
 
 void main() {
   runApp(const MainShop_Shoes());
