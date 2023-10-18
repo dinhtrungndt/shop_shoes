@@ -12,6 +12,7 @@ class _BroadingScreensState extends State<BroadingScreens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromARGB(255, 214, 231, 244),
       body: Stack(
         children: [
@@ -23,6 +24,7 @@ class _BroadingScreensState extends State<BroadingScreens> {
               'assets/logo.png',
             ),
           ),
+
           Center(
             child: ListView(
               children: [
