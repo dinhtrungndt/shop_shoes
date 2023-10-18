@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-<<<<<<< HEAD
-import 'package:shop_shoes/screens/home/index.dart';
-=======
 import 'package:shop_shoes/screens/bottom_tab_bar/index.dart';
->>>>>>> Luan
 
 class Country {
   final String name;
@@ -145,12 +141,8 @@ class _LoginPhoneState extends State<LoginPhone> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
-<<<<<<< HEAD
-                      MaterialPageRoute(builder: (_) => const HomeScreen()),
-=======
                       MaterialPageRoute(
                           builder: (_) => const MainHomeScreens()),
->>>>>>> Luan
                     );
                   },
                   style: ElevatedButton.styleFrom(

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import 'package:flutter/material.dart';
-import 'package:shop_shoes/screens/home/index.dart';
-=======
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/index.dart';
->>>>>>> Luan
 import 'package:shop_shoes/screens/login_Email_SDT/Email/signUp/index.dart';
 
 class LoginEmail extends StatefulWidget {
@@ -71,11 +66,7 @@ class _LoginEmailState extends State<LoginEmail> {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-<<<<<<< HEAD
-                    MaterialPageRoute(builder: (_) => const HomeScreen()),
-=======
                     MaterialPageRoute(builder: (_) => const MainHomeScreens()),
->>>>>>> Luan
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -128,11 +119,7 @@ class _LoginEmailState extends State<LoginEmail> {
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
-<<<<<<< HEAD
-                          MaterialPageRoute(
-=======
                           CupertinoModalPopupRoute(
->>>>>>> Luan
                               builder: (_) => const SignUpEmail()),
                         );
                       },
