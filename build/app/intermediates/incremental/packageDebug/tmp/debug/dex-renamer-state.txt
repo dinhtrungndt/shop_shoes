@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 #Thu Oct 12 09:28:33 ICT 2023
+=======
+#Mon Oct 16 20:25:06 ICT 2023
+>>>>>>> Stashed changes
 base.0=D\:\\Self learning\\Flutter\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
