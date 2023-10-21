@@ -12,8 +12,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CupertinoNavigationBar(
-        middle: Text('Home'),
+      body: Image(
+        image: AssetImage("assets/home/menu.png"),
       ),
     );
   }

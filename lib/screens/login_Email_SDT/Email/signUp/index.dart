@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_shoes/screens/login_Email_SDT/index.dart';
+import 'package:shop_shoes/services/api.dart';
 
 class SignUpEmail extends StatefulWidget {
   const SignUpEmail({super.key});
@@ -9,6 +9,11 @@ class SignUpEmail extends StatefulWidget {
 }
 
 class _SignUpEmailState extends State<SignUpEmail> {
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var userController = TextEditingController();
+  var passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +40,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(
-                    top: 50,
+                    top: 35,
                     left: 30,
                     right: 20,
                     bottom: 20,
@@ -83,7 +88,29 @@ class _SignUpEmailState extends State<SignUpEmail> {
                           height: 20,
                         ),
                         Container(
-                          margin: const EdgeInsets.only(top: 15),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 30, bottom: 0)),
+                              Text(
+                                'Name',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 95, 103),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        TextField_Email_Password(
+                          nameController,
+                          Icons.text_fields,
+                          'Enter your name',
+                          false,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 10),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -100,12 +127,13 @@ class _SignUpEmailState extends State<SignUpEmail> {
                           ),
                         ),
                         TextField_Email_Password(
+                          emailController,
                           Icons.mail_outline,
-                          'Enter your username',
+                          'Enter your email',
                           false,
                         ),
                         Container(
-                          margin: const EdgeInsets.only(top: 12),
+                          margin: const EdgeInsets.only(top: 10),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -122,6 +150,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
                           ),
                         ),
                         TextField_Email_Password(
+                          userController,
                           Icons.account_circle_outlined,
                           'Enter your username',
                           false,
@@ -144,19 +173,43 @@ class _SignUpEmailState extends State<SignUpEmail> {
                           ],
                         ),
                         TextField_Email_Password(
+                          passController,
                           Icons.lock_outline,
                           'Enter your password',
                           true,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 25),
+                          padding: const EdgeInsets.only(top: 10),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => const LoginEmailPhone(),
-                                ),
-                              );
+                              var data = {
+                                "name": nameController.text,
+                                "email": emailController.text,
+                                "username": userController.text,
+                                "password": passController.text,
+                              };
+                              Api.SignUp(data);
+                              // Navigator.of(context).push(MaterialPageRoute(
+                              //   builder: (_) => const LoginEmailPhone(),
+                              // ));
+                              // showDialog(
+                              //   context: context,
+                              //   builder: (BuildContext context) {
+                              //     return AlertDialog(
+                              //       title: const Text('Thông báo'),
+                              //       content: const Text(
+                              //           'Đăng ký thất bại: User đã tồn tại hoặc có lỗi khác xảy ra.'),
+                              //       actions: [
+                              //         TextButton(
+                              //           onPressed: () {
+                              //             Navigator.of(context).pop();
+                              //           },
+                              //           child: const Text('Đóng'),
+                              //         ),
+                              //       ],
+                              //     );
+                              //   },
+                              // );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
@@ -245,10 +298,11 @@ class _SignUpEmailState extends State<SignUpEmail> {
 }
 
 Padding TextField_Email_Password(
-    IconData icon, String hintText, bool obscureText) {
+    allController, IconData icon, String hintText, bool obscureText) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
     child: TextFormField(
+      controller: allController,
       obscureText: obscureText, // Đặt obscureText thành true
       decoration: InputDecoration(
         filled: true,
