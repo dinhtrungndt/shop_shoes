@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/index.dart';
 import 'package:shop_shoes/screens/login_Email_SDT/Email/signUp/index.dart';
+import 'package:shop_shoes/services/api.dart';
 
 class LoginEmail extends StatefulWidget {
   const LoginEmail({super.key});
@@ -11,6 +12,9 @@ class LoginEmail extends StatefulWidget {
 }
 
 class _LoginEmailState extends State<LoginEmail> {
+  var userController = TextEditingController();
+  var passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -33,7 +37,7 @@ class _LoginEmailState extends State<LoginEmail> {
                 ],
               ),
             ),
-            TextField_Email_Password(
+            TextField_Email_Password(userController,
                 Icons.account_circle_outlined, 'Enter your username', false),
             const SizedBox(
               height: 10,
@@ -48,8 +52,8 @@ class _LoginEmailState extends State<LoginEmail> {
                 ),
               ],
             ),
-            TextField_Email_Password(
-                Icons.lock_outline, 'Enter your password', true),
+            TextField_Email_Password(passController, Icons.lock_outline,
+                'Enter your password', true),
             const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -65,9 +69,24 @@ class _LoginEmailState extends State<LoginEmail> {
               padding: const EdgeInsets.only(top: 25),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const MainHomeScreens()),
-                  );
+                  var data = {
+                    "username": userController.text,
+                    "password": passController.text
+                  };
+                  if (userController.text.isEmpty ||
+                      passController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please do not leave it blank'),
+                      ),
+                    );
+                  } else {
+                    Api.SignIn(data);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (_) => const MainHomeScreens()),
+                    );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 106, 215, 225),
@@ -142,10 +161,11 @@ class _LoginEmailState extends State<LoginEmail> {
   }
 
   Padding TextField_Email_Password(
-      IconData icon, String hintText, bool obscureText) {
+      allController, IconData icon, String hintText, bool obscureText) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: TextFormField(
+        controller: allController,
         obscureText: obscureText, // Đặt obscureText thành true
         decoration: InputDecoration(
           filled: true,

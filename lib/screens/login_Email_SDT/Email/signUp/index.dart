@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_shoes/screens/login_Email_SDT/index.dart';
 import 'package:shop_shoes/services/api.dart';
 
 class SignUpEmail extends StatefulWidget {
@@ -40,7 +41,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(
-                    top: 35,
+                    top: 40,
                     left: 30,
                     right: 20,
                     bottom: 20,
@@ -179,37 +180,57 @@ class _SignUpEmailState extends State<SignUpEmail> {
                           true,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 20),
                           child: ElevatedButton(
                             onPressed: () {
-                              var data = {
-                                "name": nameController.text,
-                                "email": emailController.text,
-                                "username": userController.text,
-                                "password": passController.text,
-                              };
-                              Api.SignUp(data);
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //   builder: (_) => const LoginEmailPhone(),
-                              // ));
-                              // showDialog(
-                              //   context: context,
-                              //   builder: (BuildContext context) {
-                              //     return AlertDialog(
-                              //       title: const Text('Thông báo'),
-                              //       content: const Text(
-                              //           'Đăng ký thất bại: User đã tồn tại hoặc có lỗi khác xảy ra.'),
-                              //       actions: [
-                              //         TextButton(
-                              //           onPressed: () {
-                              //             Navigator.of(context).pop();
-                              //           },
-                              //           child: const Text('Đóng'),
-                              //         ),
-                              //       ],
-                              //     );
-                              //   },
-                              // );
+                              if (nameController.text.isEmpty ||
+                                  emailController.text.isEmpty ||
+                                  userController.text.isEmpty ||
+                                  passController.text.isEmpty == '') {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content:
+                                        Text('Please do not leave it blank'),
+                                  ),
+                                );
+                              } else if (emailController.text.isEmpty ||
+                                  userController.text.isEmpty) {
+                                if (emailController.text.isEmpty) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Email already exists'),
+                                    ),
+                                  );
+                                } else if (userController.text.isEmpty) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Username already exists'),
+                                    ),
+                                  );
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text(
+                                        'Email or username already exists'),
+                                  ),
+                                );
+                              } else {
+                                var data = {
+                                  "name": nameController.text,
+                                  "email": emailController.text,
+                                  "username": userController.text,
+                                  "password": passController.text,
+                                };
+                                Api.SignUp(data);
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (_) => const LoginEmailPhone(),
+                                ));
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Sign Up Success !'),
+                                  ),
+                                );
+                              }
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
@@ -228,39 +249,11 @@ class _SignUpEmailState extends State<SignUpEmail> {
                         ),
                         Column(
                           children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 20),
-                              child: Text(
-                                "Or login with",
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 47, 47, 47),
-                                ),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/Facebook_48px.png',
-                                  width: 40,
-                                ),
-                                const SizedBox(width: 10),
-                                Image.asset(
-                                  'assets/Twitter_48px.png',
-                                  width: 40,
-                                ),
-                                const SizedBox(width: 10),
-                                Image.asset(
-                                  'assets/google_48px.png',
-                                  width: 33.5,
-                                ),
-                              ],
-                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Padding(
-                                  padding: EdgeInsets.only(top: 30),
+                                  padding: EdgeInsets.only(top: 50),
                                 ),
                                 const Text(
                                   "Don't have an account ?",
