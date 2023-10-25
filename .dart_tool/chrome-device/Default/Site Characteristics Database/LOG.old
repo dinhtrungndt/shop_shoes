@@ -1,8 +1,0 @@
-2023/10/23-01:08:08.023 2484 Log #3: 2 ops saved to Table #7 OK
-2023/10/23-01:08:08.041 2484 Archiving C:\Users\trung\AppData\Local\Temp\flutter_tools.b24d324a\flutter_tools_chrome_device.a99a95a5\Default\Site Characteristics Database/000003.log: OK
-2023/10/23-01:08:08.041 2484 Log #6: 0 ops saved to Table #8 OK
-2023/10/23-01:08:08.044 2484 Archiving C:\Users\trung\AppData\Local\Temp\flutter_tools.b24d324a\flutter_tools_chrome_device.a99a95a5\Default\Site Characteristics Database/000006.log: OK
-2023/10/23-01:08:08.045 2484 Table #4: 2 entries OK
-2023/10/23-01:08:08.045 2484 Table #7: 2 entries OK
-2023/10/23-01:08:08.061 2484 Archiving C:\Users\trung\AppData\Local\Temp\flutter_tools.b24d324a\flutter_tools_chrome_device.a99a95a5\Default\Site Characteristics Database/MANIFEST-000001: OK
-2023/10/23-01:08:08.076 2484 **** Repaired leveldb C:\Users\trung\AppData\Local\Temp\flutter_tools.b24d324a\flutter_tools_chrome_device.a99a95a5\Default\Site Characteristics Database; recovered 2 files; 382 bytes. Some data may have been lost. ****
