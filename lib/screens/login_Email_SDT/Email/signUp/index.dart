@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_shoes/screens/login_Email_SDT/index.dart';
-import 'package:shop_shoes/services/api.dart';
+import 'package:shop_shoes/services/loginAPI.dart';
 
 class SignUpEmail extends StatefulWidget {
   const SignUpEmail({super.key});
@@ -221,7 +221,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
                                   "username": userController.text,
                                   "password": passController.text,
                                 };
-                                Api.SignUp(data);
+                                LoginAPI.SignUp(data);
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (_) => const LoginEmailPhone(),
                                 ));

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Api {
-  static const baseUrl = "http://192.168.11.116:3000/login/";
+class LoginAPI {
+  static const baseUrl = "http://192.168.0.104:3000/login/";
 
   static SignUp(Map pdata) async {
     print(pdata);
