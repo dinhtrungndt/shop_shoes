@@ -69,6 +69,14 @@ flutter:
     - assets/Twitter_48px.png
     - assets/google_48px.png
     - assets/home/menu.png
+    - assets/home.png
+    - assets/home_click.png
+    - assets/shop.png
+    - assets/shop_click.png
+    - assets/cart.png
+    - assets/cart_click.png
+    - assets/profile.png
+    - assets/profile_click.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

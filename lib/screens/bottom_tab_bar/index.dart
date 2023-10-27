@@ -27,6 +27,25 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = const HomeScreen();
 
+  final List<List<ImageProvider>> tabImages = [
+    [
+      const AssetImage("assets/home.png"),
+      const AssetImage("assets/home_click.png")
+    ],
+    [
+      const AssetImage("assets/shop.png"),
+      const AssetImage("assets/shop_click.png")
+    ],
+    [
+      const AssetImage("assets/cart.png"),
+      const AssetImage("assets/cart_click.png")
+    ],
+    [
+      const AssetImage("assets/profile.png"),
+      const AssetImage("assets/profile_click.png")
+    ],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +55,12 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: const Color.fromARGB(255, 0, 108, 111),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        elevation: 10,
         child: const Icon(
           Icons.add,
-          size: 30,
+          size: 45,
+          color: Color.fromARGB(255, 0, 99, 108),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -51,10 +72,10 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              bottomTabBarItem(Icons.home, 'Home', 0),
-              bottomTabBarItem(Icons.store, 'Shop', 1),
-              bottomTabBarItem(Icons.shopping_cart, 'Cart', 2),
-              bottomTabBarItem(Icons.person, 'Profile', 3),
+              bottomTabBarItem(tabImages[0], 'Home', 0),
+              bottomTabBarItem(tabImages[1], 'Shop', 1),
+              bottomTabBarItem(tabImages[2], 'Cart', 2),
+              bottomTabBarItem(tabImages[3], 'Profile', 3),
             ],
           ),
         ),
@@ -62,7 +83,8 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
     );
   }
 
-  MaterialButton bottomTabBarItem(IconData icon, String text, int tabIndex) {
+  MaterialButton bottomTabBarItem(
+      List<ImageProvider> images, String text, int tabIndex) {
     return MaterialButton(
       minWidth: 40,
       onPressed: () {
@@ -74,12 +96,10 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: currentTab == tabIndex
-                ? const Color.fromARGB(255, 0, 95, 103)
-                : Colors.grey,
-          ),
+          Image(
+              image: currentTab == tabIndex
+                  ? images[1]
+                  : images[0]), // Sử dụng ảnh từ danh sách tabImages
           Text(
             text,
             style: TextStyle(
@@ -87,7 +107,7 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
                   ? const Color.fromARGB(255, 0, 95, 103)
                   : Colors.grey,
             ),
-          )
+          ),
         ],
       ),
     );
