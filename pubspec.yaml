@@ -46,6 +46,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  carousel_slider: ^4.2.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -68,7 +69,6 @@ flutter:
     - assets/Facebook_48px.png
     - assets/Twitter_48px.png
     - assets/google_48px.png
-    - assets/home/menu.png
     - assets/home.png
     - assets/home_click.png
     - assets/shop.png
@@ -77,6 +77,19 @@ flutter:
     - assets/cart_click.png
     - assets/profile.png
     - assets/profile_click.png
+    # Home
+    - assets/home/menu.png
+    - assets/home/cart.png
+    - assets/home/account.png
+    - assets/home/button_search.png
+    - assets/home/background_trending.png
+    - assets/home/boder_treding_in.png
+    - assets/home/line_treding.png
+    - assets/home/star_treding.png
+    - assets/home/shoes_treding.png
+    - assets/home/shoes_new_01.png
+    - assets/home/shoes_new_02.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

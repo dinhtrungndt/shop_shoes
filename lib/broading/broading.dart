@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_shoes/screens/login_Email_SDT/index.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class BroadingScreens extends StatefulWidget {
   const BroadingScreens({super.key});
@@ -9,6 +10,14 @@ class BroadingScreens extends StatefulWidget {
 }
 
 class _BroadingScreensState extends State<BroadingScreens> {
+  final List<String> imageList = [
+    'assets/shoes_center.png',
+    'assets/home/shoes_new_01.png',
+    'assets/home/shoes_new_02.png',
+  ];
+
+  int _currentImageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,70 +47,52 @@ class _BroadingScreensState extends State<BroadingScreens> {
             padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
             child: Column(
               children: [
-                Positioned(
-                  right: 5,
-                  child: Image.asset(
-                    'assets/shoes_center.png',
+                CarouselSlider(
+                  items: imageList.map((image) {
+                    return Image.asset(image);
+                  }).toList(),
+                  options: CarouselOptions(
+                    height: 360, // Điều chỉnh chiều cao của carousel
+                    autoPlay: true, // Tự động chuyển hình ảnh
+                    autoPlayInterval:
+                        const Duration(seconds: 3), // Thời gian chuyển hình ảnh
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _currentImageIndex = index;
+                      });
+                    },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 10,
-                        height: 10,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 28, 148, 157),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: imageList.map((image) {
+                    int index = imageList.indexOf(image);
+                    return Container(
+                      width: 10,
+                      height: 10,
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _currentImageIndex == index
+                            ? const Color.fromARGB(255, 28, 148, 157)
+                            : const Color.fromARGB(255, 66, 136, 141),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 10,
-                        height: 10,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 66, 136, 141),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 10,
-                        height: 10,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 59, 101, 104),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 10,
-                        height: 10,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 121, 147, 149),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ],
-                  ),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(
+                  width: 10,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 50),
                   child: Text(
                     "Bringing perfect shoes for you",
                     style: TextStyle(
-                        fontSize: 43,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 28, 148, 157)),
+                      fontSize: 43,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 28, 148, 157),
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -109,19 +100,20 @@ class _BroadingScreensState extends State<BroadingScreens> {
                   padding: EdgeInsets.only(top: 10),
                   child: Text("Smart, comfortable and elegant shoes for you",
                       style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Poppins',
-                          color: Color.fromARGB(255, 28, 148, 157)),
+                        fontSize: 20,
+                        fontFamily: 'Poppins',
+                        color: Color.fromARGB(255, 28, 148, 157),
+                      ),
                       textAlign: TextAlign.center),
                 ),
-                // bottom chuyển qua Homescreen(),
                 Padding(
                   padding: const EdgeInsets.only(top: 50),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const LoginEmailPhone()),
+                          builder: (_) => const LoginEmailPhone(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(

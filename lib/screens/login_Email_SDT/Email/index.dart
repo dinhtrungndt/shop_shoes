@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/index.dart';
 import 'package:shop_shoes/screens/login_Email_SDT/Email/signUp/index.dart';
-import 'package:shop_shoes/services/loginAPI.dart';
 
 class LoginEmail extends StatefulWidget {
   const LoginEmail({super.key});
@@ -69,24 +68,23 @@ class _LoginEmailState extends State<LoginEmail> {
               padding: const EdgeInsets.only(top: 25),
               child: ElevatedButton(
                 onPressed: () {
-                  var data = {
-                    "username": userController.text,
-                    "password": passController.text
-                  };
-                  if (userController.text.isEmpty ||
-                      passController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Please do not leave it blank'),
-                      ),
-                    );
-                  } else {
-                    LoginAPI.SignIn(data);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (_) => const MainHomeScreens()),
-                    );
-                  }
+                  // var data = {
+                  //   "username": userController.text,
+                  //   "password": passController.text
+                  // };
+                  // if (userController.text.isEmpty ||
+                  //     passController.text.isEmpty) {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     const SnackBar(
+                  //       content: Text('Please do not leave it blank'),
+                  //     ),
+                  //   );
+                  // } else {
+                  //   LoginAPI.SignIn(data);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const MainHomeScreens()),
+                  );
+                  //   }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 106, 215, 225),
