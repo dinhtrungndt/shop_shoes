@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Basketball extends StatefulWidget {
-  const Basketball({super.key});
+  const Basketball({Key? key}) : super(key: key);
 
   @override
   State<Basketball> createState() => _BasketballState();
@@ -10,9 +10,133 @@ class Basketball extends StatefulWidget {
 class _BasketballState extends State<Basketball> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Basketball"),
+    return Scaffold(
+      body: ListView(
+        padding: const EdgeInsets.only(top: 0),
+        physics: const BouncingScrollPhysics(),
+        children: [
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "New BasketBall",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 95, 103),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "All >",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 0, 95, 103),
+                        ),
+                      )),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 7),
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 2,
+                            color: const Color.fromARGB(255, 0, 95, 103)),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(255, 223, 252, 248)
+                                .withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: const Image(
+                          image:
+                              AssetImage("assets/home/basketball_new_01.png")),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 2,
+                            color: const Color.fromARGB(255, 0, 95, 103)),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(255, 223, 252, 248)
+                                .withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: const Image(
+                          image:
+                              AssetImage("assets/home/basketball_new_02.png")),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    const Image(
+                        image: AssetImage(
+                            "assets/home/list_hovertical_new_mens_01.png")),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    const Image(
+                        image: AssetImage(
+                            "assets/home/list_hovertical_new_mens_02.png")),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Sale",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 95, 103),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "All >",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 0, 95, 103),
+                        ),
+                      )),
+                ],
+              ),
+              const Image(image: AssetImage("assets/home/sale.png")),
+              const SizedBox(
+                height: 20,
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

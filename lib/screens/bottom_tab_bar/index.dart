@@ -46,6 +46,25 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
     ],
   ];
 
+  final List<List<ImageProvider>> tabAdress = [
+    [
+      const AssetImage("assets/home.png"),
+      const AssetImage("assets/home_click.png")
+    ],
+    [
+      const AssetImage("assets/shop.png"),
+      const AssetImage("assets/shop_click.png")
+    ],
+    [
+      const AssetImage("assets/cart.png"),
+      const AssetImage("assets/cart_click.png")
+    ],
+    [
+      const AssetImage("assets/profile.png"),
+      const AssetImage("assets/profile_click.png")
+    ],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +87,7 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
         shape: const CircularNotchedRectangle(),
         notchMargin: 10,
         child: SizedBox(
-          height: 60,
+          height: 70,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -96,19 +115,24 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Visibility(
-            visible: currentTab == tabIndex,
-            child: Container(
-              width: 10,
-              height: 10,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 0, 95, 103),
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
+          // Visibility(
+          //   visible: currentTab == tabIndex,
+          //   child: Container(
+          //     width: 10,
+          //     height: 10,
+          //     decoration: BoxDecoration(
+          //       color: const Color.fromARGB(255, 0, 95, 103),
+          //       borderRadius: BorderRadius.circular(5),
+          //     ),
+          //   ),
+          // ),
+          Image(
+            image: currentTab == tabIndex
+                ? const AssetImage("assets/adress_click.png")
+                : const AssetImage("assets/adress.png"),
           ),
           const SizedBox(
-            height: 3,
+            height: 5,
           ),
           Image(
               image: currentTab == tabIndex

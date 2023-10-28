@@ -79,6 +79,8 @@ flutter:
     - assets/cart_click.png
     - assets/profile.png
     - assets/profile_click.png
+    - assets/adress.png
+    - assets/adress_click.png
     # Home
     - assets/home/menu.png
     - assets/home/cart.png
@@ -100,6 +102,15 @@ flutter:
     - assets/home/list_hovertical_new_mens_01.png
     - assets/home/list_hovertical_new_mens_02.png
     - assets/home/list_hovertical_new_mens_03.png
+    - assets/home/sale.png
+
+    # Life Style
+    - assets/home/life_style_new_03.png
+    - assets/home/life_style_new_04.png
+
+    # basketBall
+    - assets/home/basketball_new_01.png
+    - assets/home/basketball_new_02.png
 
     # Shop
 
