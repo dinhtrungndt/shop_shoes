@@ -55,7 +55,7 @@ class _BroadingScreensState extends State<BroadingScreens> {
                     height: 360, // Điều chỉnh chiều cao của carousel
                     autoPlay: true, // Tự động chuyển hình ảnh
                     autoPlayInterval:
-                        const Duration(seconds: 3), // Thời gian chuyển hình ảnh
+                        const Duration(seconds: 2), // Thời gian chuyển hình ảnh
                     onPageChanged: (index, reason) {
                       setState(() {
                         _currentImageIndex = index;
@@ -74,8 +74,8 @@ class _BroadingScreensState extends State<BroadingScreens> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: _currentImageIndex == index
-                            ? const Color.fromARGB(255, 28, 148, 157)
-                            : const Color.fromARGB(255, 66, 136, 141),
+                            ? const Color.fromARGB(255, 138, 218, 224)
+                            : const Color.fromARGB(255, 41, 79, 81),
                       ),
                     );
                   }).toList(),

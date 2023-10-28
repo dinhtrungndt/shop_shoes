@@ -86,7 +86,7 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
   MaterialButton bottomTabBarItem(
       List<ImageProvider> images, String text, int tabIndex) {
     return MaterialButton(
-      minWidth: 40,
+      minWidth: 50,
       onPressed: () {
         setState(() {
           currentScreen = screens[tabIndex];
@@ -96,6 +96,20 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Visibility(
+            visible: currentTab == tabIndex,
+            child: Container(
+              width: 10,
+              height: 10,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 0, 95, 103),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 3,
+          ),
           Image(
               image: currentTab == tabIndex
                   ? images[1]
@@ -106,6 +120,8 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
               color: currentTab == tabIndex
                   ? const Color.fromARGB(255, 0, 95, 103)
                   : Colors.grey,
+              fontWeight:
+                  currentTab == tabIndex ? FontWeight.bold : FontWeight.normal,
             ),
           ),
         ],

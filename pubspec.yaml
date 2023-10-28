@@ -47,6 +47,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   carousel_slider: ^4.2.1
+  buttons_tabbar: ^1.3.5
+  google_fonts: ^6.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -89,6 +91,11 @@ flutter:
     - assets/home/shoes_treding.png
     - assets/home/shoes_new_01.png
     - assets/home/shoes_new_02.png
+    - assets/home/slide_carousel_01.png
+    - assets/home/slide_carousel_02.png
+    - assets/home/slide_carousel_03.png
+    - assets/home/slide_carousel_04.png
+    - assets/home/slide_carousel_all.png
 
   #   - images/a_dot_ham.jpeg
 
