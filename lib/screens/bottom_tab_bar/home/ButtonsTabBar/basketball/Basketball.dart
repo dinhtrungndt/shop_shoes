@@ -10,10 +10,10 @@ class Basketball extends StatefulWidget {
 class _BasketballState extends State<Basketball> {
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      children: [
-        Text("Basketball"),
-      ],
+    return const Scaffold(
+      body: Center(
+        child: Text("Basketball"),
+      ),
     );
   }
 }

@@ -10,10 +10,10 @@ class OurCollection extends StatefulWidget {
 class _OurCollectionState extends State<OurCollection> {
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      children: [
-        Text("OurCollection"),
-      ],
+    return const Scaffold(
+      body: Center(
+        child: Text("Our Collection"),
+      ),
     );
   }
 }

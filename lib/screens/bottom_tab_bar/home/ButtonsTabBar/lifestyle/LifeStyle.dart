@@ -10,10 +10,10 @@ class LifeStyle extends StatefulWidget {
 class _LifeStyleState extends State<LifeStyle> {
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      children: [
-        Text("LifeStyle"),
-      ],
+    return const Scaffold(
+      body: Center(
+        child: Text("Life Style"),
+      ),
     );
   }
 }

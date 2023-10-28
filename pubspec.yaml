@@ -96,6 +96,12 @@ flutter:
     - assets/home/slide_carousel_03.png
     - assets/home/slide_carousel_04.png
     - assets/home/slide_carousel_all.png
+    # new mens
+    - assets/home/list_hovertical_new_mens_01.png
+    - assets/home/list_hovertical_new_mens_02.png
+    - assets/home/list_hovertical_new_mens_03.png
+
+    # Shop
 
   #   - images/a_dot_ham.jpeg
 

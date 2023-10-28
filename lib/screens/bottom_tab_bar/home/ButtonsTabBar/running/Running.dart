@@ -10,10 +10,10 @@ class Running extends StatefulWidget {
 class _RunningState extends State<Running> {
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      children: [
-        Text("Running"),
-      ],
+    return const Scaffold(
+      body: Center(
+        child: Text("Running"),
+      ),
     );
   }
 }
