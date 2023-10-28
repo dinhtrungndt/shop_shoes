@@ -81,6 +81,7 @@ flutter:
     - assets/profile_click.png
     - assets/adress.png
     - assets/adress_click.png
+    - assets/Search_button.png
     # Home
     - assets/home/menu.png
     - assets/home/cart.png
@@ -113,6 +114,7 @@ flutter:
     - assets/home/basketball_new_02.png
 
     # Shop
+    - assets/shop/menu.png
 
   #   - images/a_dot_ham.jpeg
 

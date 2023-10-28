@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/header/Header.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/home/search/Search.dart';
+
+// Import function
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/shop/allshoes/AllShoes.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/shop/men/Men.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/shop/outdoor/OutDoor.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/shop/sales/Sales.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/shop/women/Women.dart';
 
 class ShopScreen extends StatefulWidget {
   const ShopScreen({super.key});
@@ -9,13 +18,137 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
+  List<String> kindList = [
+    "All Shoes",
+    "Men",
+    "Women",
+    "Outdoor",
+    "Sales",
+  ];
+
+  int _currentKindIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
-          children: [Header()],
+          children: [
+            const Header(),
+            const SizedBox(height: 20.0),
+            Row(
+              children: [
+                const Search(
+                  textFieldWidth: 300,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: InkWell(
+                    onTap: () {},
+                    child:
+                        const Image(image: AssetImage("assets/shop/menu.png")),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: 15.0),
+            const Row(
+              children: [
+                Text(
+                  "Select category",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Color.fromARGB(255, 0, 95, 103),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 15.0),
+            SizedBox(
+              height: 60,
+              width: double.infinity,
+              child: ListView.builder(
+                  physics:
+                      const BouncingScrollPhysics(), // không hiển thị xanh thi kéo xuống hết
+                  itemCount: kindList.length, // lấy đủ số lượng item
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (ctx, index) {
+                    return Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _currentKindIndex = index;
+                            });
+                          },
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            width: 100,
+                            margin: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: _currentKindIndex == index
+                                    ? const Color.fromARGB(255, 89, 217, 224)
+                                    : const Color.fromARGB(255, 224, 229, 229),
+                                borderRadius: _currentKindIndex == index
+                                    ? BorderRadius.circular(15)
+                                    : BorderRadius.circular(5),
+                                border: _currentKindIndex == index
+                                    ? Border.all(
+                                        color: const Color.fromARGB(
+                                            255, 89, 217, 224),
+                                        width: 2)
+                                    : Border.all(
+                                        color: const Color.fromARGB(
+                                            255, 170, 204, 204),
+                                        width: 2)),
+                            child: Center(
+                              child: Text(
+                                kindList[index],
+                                style: GoogleFonts.laila(
+                                  fontSize: 14,
+                                  color: _currentKindIndex == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Visibility(
+                          visible: _currentKindIndex == index,
+                          child: Container(
+                            width: 50,
+                            height: 3,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 89, 217, 224),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                        )
+                      ],
+                    );
+                  }),
+            ),
+
+            // Main sreens
+            Container(
+              width: double.infinity,
+              height: 310,
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 224, 229, 229),
+              ),
+              child: {
+                0: const AllShoes(),
+                1: const Men(),
+                2: const Women(),
+                3: const OutDoor(),
+                4: const Sales(),
+              }[_currentKindIndex],
+            )
+          ],
         ),
       ),
     );

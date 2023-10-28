@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 // Import function
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// import screen
 import 'package:shop_shoes/screens/bottom_tab_bar/home/ButtonsTabBar/anyseason/AnySeason.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/ButtonsTabBar/basketball/Basketball.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/ButtonsTabBar/lifestyle/LifeStyle.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/ButtonsTabBar/ourcollection/OurCollection.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/ButtonsTabBar/running/Running.dart';
-import 'package:shop_shoes/screens/bottom_tab_bar/home/header/Header.dart';
 
 // component
-
-// import screen
+import 'package:shop_shoes/screens/bottom_tab_bar/home/header/Header.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/home/search/Search.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -50,6 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               const Header(),
+              const SizedBox(
+                height: 20,
+              ),
+              const Search(),
               const SizedBox(
                 height: 20,
               ),
