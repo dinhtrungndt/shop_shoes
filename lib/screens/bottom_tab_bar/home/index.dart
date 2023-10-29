@@ -23,7 +23,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double price = 289;
   final List<String> imageList = [
     'assets/home/slide_carousel_02.png',
     'assets/home/slide_carousel_03.png',

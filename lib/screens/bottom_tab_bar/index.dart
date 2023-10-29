@@ -77,8 +77,8 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 10,
         child: const Icon(
-          Icons.add,
-          size: 45,
+          Icons.message_outlined,
+          size: 30,
           color: Color.fromARGB(255, 0, 99, 108),
         ),
       ),

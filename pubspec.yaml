@@ -62,6 +62,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    # Item
     - assets/logo.png
     - assets/shoes_center.png
     - assets/line_behind.png
@@ -82,6 +83,18 @@ flutter:
     - assets/adress.png
     - assets/adress_click.png
     - assets/Search_button.png
+    - assets/cart_item_list.png
+    - assets/favorite_item_list.png
+    - assets/pick_color_item_02.png
+    - assets/pick_color_item_03.png
+    - assets/pick_color_item_04.png
+    - assets/pick_color_item_blue.png
+    - assets/account_item_01.png
+    - assets/account_item_02.png
+    - assets/account_item_03.png
+    - assets/star_item.png
+    - assets/next_item.png
+
     # Home
     - assets/home/menu.png
     - assets/home/cart.png
@@ -115,6 +128,8 @@ flutter:
 
     # Shop
     - assets/shop/menu.png
+    - assets/shop/shoes_item_01.png
+    - assets/shop/shoes_item_02.png
 
   #   - images/a_dot_ham.jpeg
 

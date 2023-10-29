@@ -10,8 +10,12 @@ class AllShoes extends StatefulWidget {
 class _AllShoesState extends State<AllShoes> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text("All Shoes"),
+    return const Scaffold(
+      body: Row(
+        children: [
+          Text("All Shoes"),
+        ],
+      ),
     );
   }
 }
