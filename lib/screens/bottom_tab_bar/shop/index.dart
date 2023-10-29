@@ -134,9 +134,10 @@ class _ShopScreenState extends State<ShopScreen> {
                       );
                     }),
               ),
-              const Row(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Select products",
                     style: TextStyle(
                       fontSize: 14.0,
@@ -144,6 +145,15 @@ class _ShopScreenState extends State<ShopScreen> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "All >",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 160, 160, 160),
+                        ),
+                      )),
                 ],
               ),
               const SizedBox(height: 10.0),
@@ -162,6 +172,48 @@ class _ShopScreenState extends State<ShopScreen> {
                   4: const Sales(),
                 }[_currentKindIndex],
               ),
+              const SizedBox(height: 10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Selling products",
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Color.fromARGB(255, 0, 95, 103),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "All >",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 160, 160, 160),
+                        ),
+                      )),
+                ],
+              ),
+              const SizedBox(height: 10.0),
+              const SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
+                child: Row(
+                  children: [
+                    Image(
+                        image:
+                            AssetImage("assets/shop/Selling_product_01.png")),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                    ),
+                    Image(
+                        image:
+                            AssetImage("assets/shop/Selling_product_02.png")),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20.0),
             ],
           ),
         ),
