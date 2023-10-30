@@ -15,6 +15,8 @@ class _LoginEmailState extends State<LoginEmail> {
   var userController = TextEditingController();
   var passController = TextEditingController();
 
+  String errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -68,24 +70,41 @@ class _LoginEmailState extends State<LoginEmail> {
             Padding(
               padding: const EdgeInsets.only(top: 25),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   var data = {
                     "username": userController.text,
                     "password": passController.text
                   };
-                  if (userController.text.isEmpty ||
-                      passController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Please do not leave it blank'),
-                      ),
-                    );
-                  } else {
-                    LoginAPI.SignIn(data);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (_) => const MainHomeScreens()),
-                    );
+
+                  final result = await LoginAPI.SignIn(data);
+
+                  try {
+                    if (userController.text == "" ||
+                        passController.text == "") {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                            "Please enter complete information !",
+                          ),
+                        ),
+                      );
+                    } else if (result['success'] == false) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            result['message'],
+                          ),
+                        ),
+                      );
+                    } else {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const MainHomeScreens(),
+                        ),
+                      );
+                    }
+                  } catch (e) {
+                    print(e);
                   }
                 },
                 style: ElevatedButton.styleFrom(

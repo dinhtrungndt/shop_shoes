@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // Screens
 import 'package:shop_shoes/screens/bottom_tab_bar/cart/index.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/chatAI/chatAI.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/index.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/profile/index.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/shop/index.dart';
@@ -73,7 +74,13 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
         child: currentScreen,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const ChatAI(),
+            ),
+          );
+        },
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 10,
         child: const Icon(
