@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/bottomSheet/Bottom.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/bottomSheet/call/call.dart';
 
 // Screens
 import 'package:shop_shoes/screens/bottom_tab_bar/cart/index.dart';
-import 'package:shop_shoes/screens/bottom_tab_bar/chatAI/chatAI.dart';
+import 'package:shop_shoes/screens/bottom_tab_bar/bottomSheet/chatAI/chatAI.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/home/index.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/profile/index.dart';
 import 'package:shop_shoes/screens/bottom_tab_bar/shop/index.dart';
@@ -75,10 +77,88 @@ class _MainHomeScreensState extends State<MainHomeScreens> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const ChatAI(),
+          showModalBottomSheet(
+            backgroundColor: const Color.fromARGB(192, 43, 131, 133),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(25),
+              ),
             ),
+            context: context,
+            builder: (BuildContext context) {
+              return Padding(
+                padding: const EdgeInsets.all(20),
+                child: SizedBox(
+                  height: 170,
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: const Row(
+                          children: [
+                            Image(image: AssetImage("assets/chatBot.png")),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Text(
+                              'ChatAI',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                          bottomSheet(context, const ChatAI());
+                        },
+                      ),
+                      const Divider(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        height: 20,
+                        thickness: 1,
+                        indent: 0,
+                        endIndent: 0,
+                      ),
+                      ListTile(
+                        title: const Row(
+                          children: [
+                            Image(image: AssetImage("assets/callSp.png")),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Text(
+                              'CallSp',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CallSp()),
+                          );
+                        },
+                      ),
+                      const Divider(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        height: 20,
+                        thickness: 1,
+                        indent: 0,
+                        endIndent: 0,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
           );
         },
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),

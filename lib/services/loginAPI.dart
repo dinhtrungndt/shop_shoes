@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class LoginAPI {
-  static const baseUrl = "http://192.168.0.104:3000/login/";
+  static const baseUrl = "https://shop-shoes-api.onrender.com/login/";
 
   static SignUp(Map pdata) async {
     print(pdata);

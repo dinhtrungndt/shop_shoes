@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class productsAPI {
-  static const baseUrl = "http://192.168.0.104:3000/product/";
+  static const baseUrl = "https://shop-shoes-api.onrender.com/product/";
 
   static Future<List<Map<String, dynamic>>> getProducts() async {
     var url = Uri.parse("${baseUrl}get-product");

@@ -96,6 +96,8 @@ flutter:
     - assets/account_item_03.png
     - assets/star_item.png
     - assets/next_item.png
+    - assets/chatBot.png
+    - assets/callSp.png
 
     # Home
     - assets/home/menu.png
