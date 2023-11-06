@@ -146,6 +146,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "loading_icon_button",
+      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/loading_icon_button-0.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/matcher-0.12.15",
       "packageUri": "lib/",
@@ -216,6 +222,12 @@
       "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.6",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "rxdart",
+      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/rxdart-0.27.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
@@ -302,7 +314,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-11-01T23:29:42.331803Z",
+  "generated": "2023-11-06T20:10:05.023931Z",
   "generator": "pub",
   "generatorVersion": "3.0.5"
 }

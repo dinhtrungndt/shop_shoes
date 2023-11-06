@@ -51,6 +51,7 @@ dev_dependencies:
   google_fonts: ^6.1.0
   chat_gpt_sdk: ^2.2.1
   velocity_x: ^4.1.1
+  loading_icon_button: ^0.0.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -116,6 +117,11 @@ flutter:
     - assets/home/slide_carousel_03.png
     - assets/home/slide_carousel_04.png
     - assets/home/slide_carousel_all.png
+    - assets/home/favorite_outline.png
+    - assets/home/favorite_line.png
+    - assets/home/pickColor.png
+    - assets/home/item_star.png
+
     # new mens
     - assets/home/list_hovertical_new_mens_01.png
     - assets/home/list_hovertical_new_mens_02.png

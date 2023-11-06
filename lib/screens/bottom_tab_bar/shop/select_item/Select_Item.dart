@@ -22,7 +22,16 @@ class SelectItem extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // Loading state
-          return const CircularProgressIndicator();
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.hourglass_empty, size: 36, color: Colors.blue),
+              Text(
+                "Loading...",
+                style: TextStyle(fontSize: 16, color: Colors.blue),
+              )
+            ],
+          );
         } else if (snapshot.hasError) {
           // Error state
           return Text("Error: ${snapshot.error}");
