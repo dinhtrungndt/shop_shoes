@@ -53,7 +53,9 @@ class _ShopScreenState extends State<ShopScreen> {
                   )
                 ],
               ),
-              const SizedBox(height: 15.0),
+              const Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+              ),
               const Row(
                 children: [
                   Text(
@@ -66,9 +68,11 @@ class _ShopScreenState extends State<ShopScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10.0),
+              const Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+              ),
               SizedBox(
-                height: 60,
+                height: 50,
                 width: double.infinity,
                 child: ListView.builder(
                     physics:
@@ -156,7 +160,6 @@ class _ShopScreenState extends State<ShopScreen> {
                       )),
                 ],
               ),
-              const SizedBox(height: 10.0),
               // Main sreens
               Container(
                 width: double.infinity,
