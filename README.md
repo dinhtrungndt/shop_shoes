@@ -1,7 +1,7 @@
 # This is a shoe ordering application that integrates with ChatGPT is upgrading... and NodeJS. 👨🏻‍💻📲
 # Figma: https://www.figma.com/file/0GtbNE7YVlGSOWcsWGOb3r/QuickThinking?node-id=1524%3A23119&mode=dev
 # Application Summary:
-![mp4](https://github.com/dinhtrungndt/shop_shoes/assets/127390593/a1c7b93e-097d-4cdf-9d74-fb0681788680)
+![mp4](https://github.com/dinhtrungndt/shop_shoes/assets/127390593/e1408211-19c9-4d0e-8fc2-6478bac90fbd)
 
 # Login:
 ![image](https://github.com/dinhtrungndt/shop_shoes/assets/127390593/1a5cf473-1695-459c-8400-5aba346db0ea)
