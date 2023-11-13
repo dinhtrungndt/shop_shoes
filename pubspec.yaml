@@ -143,6 +143,19 @@ flutter:
     - assets/shop/Selling_product_01.png
     - assets/shop/Selling_product_02.png
 
+    # Cart
+    - assets/cart/item_01.png
+    - assets/cart/item_02.png
+    - assets/cart/item_03.png
+
+    # profile
+    - assets/profile/cart.png
+    - assets/profile/avatar.png
+    - assets/profile/caidatthongtin.png
+    - assets/profile/dathang.png
+    - assets/profile/hotro.png
+    - assets/profile/dangxuat.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
