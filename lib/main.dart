@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shop_shoes/screens/bottom_tab_bar/home/ButtonsTabBar/anyseason/AnySeason.dart';
 import 'package:shop_shoes/splashscreens/splash_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   runApp(const MainShop_Shoes());
 }
 

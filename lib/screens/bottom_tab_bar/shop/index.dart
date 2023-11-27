@@ -40,7 +40,7 @@ class _ShopScreenState extends State<ShopScreen> {
               const SizedBox(height: 20.0),
               Row(
                 children: [
-                  const Search(
+                  Search(
                     textFieldWidth: 300,
                   ),
                   Padding(
@@ -54,7 +54,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 ],
               ),
               const Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: 20.0),
               ),
               const Row(
                 children: [
@@ -69,7 +69,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 ],
               ),
               const Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+                padding: EdgeInsets.only(top: 10.0),
               ),
               SizedBox(
                 height: 50,

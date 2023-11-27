@@ -23,4 +23,22 @@ class productsAPI {
       return [];
     }
   }
+
+  static Future<List<Map<String, dynamic>>> searchByName(String name) async {
+    var url = Uri.parse("${baseUrl}search?name=$name");
+
+    try {
+      final res = await http.get(url);
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body.toString());
+        return List<Map<String, dynamic>>.from(data);
+      } else {
+        print("Tìm kiếm thất bại");
+        return [];
+      }
+    } catch (error) {
+      debugPrint(error.toString());
+      return [];
+    }
+  }
 }

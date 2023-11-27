@@ -1,115 +1,162 @@
+import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'chatmessage.dart';
+import 'threedots.dart';
+import 'package:http/http.dart' as http;
 
 class ChatAI extends StatefulWidget {
-  const ChatAI({Key? key}) : super(key: key);
+  const ChatAI({super.key});
 
   @override
-  _ChatAIState createState() => _ChatAIState();
+  State<ChatAI> createState() => _ChatAIState();
 }
 
 class _ChatAIState extends State<ChatAI> {
-  final List<Message> _messages = <Message>[];
+  final TextEditingController _controller = TextEditingController();
+  final List<ChatMessage> _messages = [];
+  late OpenAI? chatGPT;
+  bool _isImageSearch = false;
+
+  bool _isTyping = false;
+
+  @override
+  void initState() {
+    chatGPT = OpenAI.instance.build(
+      token: dotenv.env["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"],
+      baseOption:
+          HttpSetup(receiveTimeout: const Duration(milliseconds: 60000)),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    chatGPT?.close();
+    chatGPT?.genImgClose();
+    super.dispose();
+  }
+
+  // Link for api - https://beta.openai.com/account/api-keys
+
+  void _sendMessage() async {
+    if (_controller.text.isEmpty) return;
+    ChatMessage message = ChatMessage(
+      text: _controller.text,
+      sender: "user",
+      isImage: false,
+    );
+
+    setState(() {
+      _messages.insert(0, message);
+      _isTyping = true;
+    });
+
+    _controller.clear();
+
+    if (_isImageSearch) {
+      final request = GenerateImage(message.text, 1, size: "256x256");
+
+      // Implement the logic to make an HTTP request to OpenAI for image generation
+      // Use http.post or http.get as appropriate
+      // Parse the response and update the UI
+    } else {
+      final request =
+          CompleteText(prompt: message.text, model: "text-davinci-003");
+
+      final response = await http.post(
+        Uri.parse('https://api.openai.com/v1/engines/davinci/completions'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization':
+              'Bearer ${dotenv.env["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"]}',
+        },
+        body: '{"prompt": "${request.prompt}", "model": "${request.model}"}',
+      );
+
+      if (response.statusCode == 200) {
+        final String generatedText = response.body;
+        insertNewData(generatedText, isImage: false);
+      } else {
+        // Handle error
+      }
+    }
+  }
+
+  void insertNewData(String response, {bool isImage = false}) {
+    ChatMessage botMessage = ChatMessage(
+      text: response,
+      sender: "bot",
+      isImage: isImage,
+    );
+
+    setState(() {
+      _isTyping = false;
+      _messages.insert(0, botMessage);
+    });
+  }
+
+  Widget _buildTextComposer() {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            controller: _controller,
+            onSubmitted: (value) => _sendMessage(),
+            decoration: const InputDecoration.collapsed(
+                hintText: "Question/description"),
+          ),
+        ),
+        ButtonBar(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.send),
+              onPressed: () {
+                _isImageSearch = false;
+                _sendMessage();
+              },
+            ),
+            TextButton(
+                onPressed: () {
+                  _isImageSearch = true;
+                  _sendMessage();
+                },
+                child: const Text("Generate Image"))
+          ],
+        ),
+      ],
+    ).px16();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Chat AI'),
-        backgroundColor: const Color(0xFF4DD0E1),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _messages.length,
-              itemBuilder: (context, index) {
-                return _buildMessage(_messages[index]);
-              },
-            ),
-          ),
-          _buildMessageComposer(),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMessage(Message message) {
-    return Align(
-      alignment: message.isBot ? Alignment.centerLeft : Alignment.centerRight,
-      child: Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-          color: message.isBot ? Colors.white : const Color(0xFF4DD0E1),
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Text(
-          message.text,
-          style: TextStyle(color: message.isBot ? Colors.black : Colors.white),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMessageComposer() {
-    return Container(
-      padding: const EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: TextField(
-              textInputAction: TextInputAction.send,
-              onSubmitted: (text) {
-                _sendMessage(text, isBot: false);
-              },
-              decoration: const InputDecoration.collapsed(
-                hintText: "Send a message...",
+        appBar: AppBar(title: const Text("ChatGPT & Dall-E2 Demo")),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Flexible(
+                  child: ListView.builder(
+                reverse: true,
+                padding: Vx.m8,
+                itemCount: _messages.length,
+                itemBuilder: (context, index) {
+                  return _messages[index];
+                },
+              )),
+              if (_isTyping) const ThreeDots(),
+              const Divider(
+                height: 1.0,
               ),
-            ),
+              Container(
+                decoration: BoxDecoration(
+                  color: context.cardColor,
+                ),
+                child: _buildTextComposer(),
+              )
+            ],
           ),
-          IconButton(
-            icon: const Icon(Icons.send),
-            onPressed: () {
-              // Simulate bot's response
-              _sendMessage("Hi there! I'm your AI chatbot.", isBot: true);
-            },
-          ),
-        ],
-      ),
-    );
+        ));
   }
-
-  void _sendMessage(String text, {bool isBot = false}) {
-    setState(() {
-      _messages.add(Message(text, isBot));
-    });
-  }
-}
-
-class Message {
-  final String text;
-  final bool isBot;
-
-  Message(this.text, this.isBot);
 }

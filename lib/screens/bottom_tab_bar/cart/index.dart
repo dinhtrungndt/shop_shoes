@@ -34,15 +34,15 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
               child: Search(),
             ),
             const Row(
               children: [
                 Padding(padding: EdgeInsets.only(top: 50)),
                 Text(
-                  "3 Item",
+                  "1 Item",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -99,7 +99,7 @@ class _CartScreenState extends State<CartScreen> {
                     Stack(
                       children: [
                         Container(
-                          width: 300,
+                          width: 320,
                           height: 30,
                           decoration: const BoxDecoration(
                             color: Color.fromARGB(233, 0, 101, 233),
@@ -143,6 +143,21 @@ class _CartScreenState extends State<CartScreen> {
                       ],
                     )
                   ],
+                ),
+                Container(
+                  width: 30,
+                  height: 160,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(233, 233, 0, 35),
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.delete,
+                    color: Colors.white,
+                  ),
                 )
               ],
             )
