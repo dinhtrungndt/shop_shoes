@@ -1,4 +1,13 @@
-#Wed Oct 18 15:15:38 ICT 2023
-base.0=D\:\\Self learning\\Flutter\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
+#Tue Jun 11 18:09:31 ICT 2024
+path.3=4/classes.dex
+path.2=1/classes.dex
+path.1=0/classes.dex
 path.0=classes.dex
+base.3=D\:\\me\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+base.2=D\:\\me\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.1=D\:\\me\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.0=D\:\\me\\shop_shoes\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
